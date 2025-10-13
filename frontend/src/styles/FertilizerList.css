@@ -1,0 +1,194 @@
+/* ===== Page Background ===== */
+.fertilizer-page {
+  background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+  min-height: 100vh;
+  padding: 0 20px 40px 20px; /* top padding removed for header */
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== Header with Logo and Logout ===== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #3d7a4f 100%);
+  color: white;
+  border-radius: 0 0 15px 15px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 25px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #a5d6a7;
+  background-color: #fff;
+}
+
+.app-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+/* ===== Logout Button ===== */
+.logout-btn {
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: #b71c1c;
+  transform: scale(1.05);
+}
+
+/* ===== Page Title ===== */
+.page-title {
+  color: #2e7d32;
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+/* ===== Fertilizer Form ===== */
+.form-wrapper {
+  margin-bottom: 30px;
+}
+
+/* ===== Fertilizer Cards ===== */
+.fertilizer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+.fertilizer-card {
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fertilizer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+}
+
+.fertilizer-img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.fertilizer-card h3 {
+  color: #1b5e20;
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.desc {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 8px 0;
+}
+
+/* ===== Buttons ===== */
+.delete-btn {
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+  background-color: #9a0007;
+  transform: scale(1.05);
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 12px;
+  gap: 8px;
+}
+
+.cart-btn,
+.buy-btn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.cart-btn {
+  background-color: #43a047;
+  color: #fff;
+}
+
+.cart-btn:hover {
+  background-color: #2e7d32;
+  transform: scale(1.05);
+}
+
+.buy-btn {
+  background-color: #81c784;
+  color: #1b5e20;
+}
+
+.buy-btn:hover {
+  background-color: #66bb6a;
+  transform: scale(1.05);
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  .fertilizer-card {
+    width: 90%;
+  }
+
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .app-title {
+    font-size: 1.3rem;
+  }
+
+  .app-logo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .logout-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
