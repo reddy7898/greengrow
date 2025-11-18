@@ -43,6 +43,10 @@ export default function FertilizerList() {
     window.location.href = '/login'; // Redirect to login page
   };
 
+  const handleLogoClick = () => {
+    window.location.href = '/'; // Redirect to login page
+  };
+
   return (
     <div className="fertilizer-page">
       {/* ✅ Header section with logo and logout */}
