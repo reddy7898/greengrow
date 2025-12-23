@@ -12,9 +12,9 @@ class DatabaseSeeder extends Seeder
         // Admin user
         User::factory()->create([
             'name' => 'Admin',
-            'email' => 'admin@greengrow.local',
+            'email' => 'nikhil.duluri@gmail.com',
             'role' => 'admin',
-            'password' => bcrypt('password'),
+            'password' => bcrypt('Nikky@123'),
         ]);
 
         // Sample customer

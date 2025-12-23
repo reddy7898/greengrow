@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { useCart } from "../context/CartContext";
+import { FaShoppingCart } from "react-icons/fa";
 import API from '../api/api';
 import FertilizerForm from './FertilizerForm';
 import fertilizerImg from '../assets/fertilizer.png';
@@ -8,6 +10,9 @@ import '../styles/FertilizerList.css';
 export default function FertilizerList() {
   const [fertilizers, setFertilizers] = useState([]);
   const [role, setRole] = useState(localStorage.getItem('role') || '');
+  const { cartCount} = useCart(); 
+  const { cartItems, addToCart, removeFromCart } = useCart();
+
 
   const fetchFertilizers = async () => {
     try {
@@ -30,7 +35,7 @@ export default function FertilizerList() {
   };
 
   const handleAddToCart = (f) => {
-    alert(`${f.name} added to cart!`);
+     addToCart();
   };
 
   const handleBuyNow = (f) => {
@@ -50,15 +55,26 @@ export default function FertilizerList() {
   return (
     <div className="fertilizer-page">
       {/* ✅ Header section with logo and logout */}
-      <header className="app-header">
-        <div className="logo-section">
-          <img src={greengrowLogo} alt="GreenGrow Logo" className="app-logo" />
-          <h2 className="app-title">GreenGrow Fertilizers</h2>
-        </div>
-        <button className="logout-btn" onClick={handleLogout}>
-          Logout
-        </button>
-      </header>
+     <header className="app-header">
+  <div className="logo-section">
+    <img src={greengrowLogo} alt="GreenGrow Logo" className="app-logo" />
+    <h2 className="app-title">GreenGrow Fertilizers</h2>
+  </div>
+
+  <div className="header-right">
+    <div className="cart-icon">
+      <FaShoppingCart size={22} />
+      {cartCount > 0 && (
+        <span className="cart-badge">{cartCount}</span>
+      )}
+    </div>
+
+    <button className="logout-btn" onClick={handleLogout}>
+      Logout
+    </button>
+  </div>
+</header>
+
 
       <h1 className="page-title">🌿 Fertilizer Products</h1>
 
@@ -83,13 +99,30 @@ export default function FertilizerList() {
               </button>
             ) : (
               <div className="action-buttons">
-                <button className="cart-btn" onClick={() => handleAddToCart(f)}>
-                  🛒 Add to Cart
-                </button>
-                <button className="buy-btn" onClick={() => handleBuyNow(f)}>
-                  💳 Buy Now
-                </button>
-              </div>
+  <button
+    className="cart-btn"
+    onClick={() => addToCart(f.id)}
+  >
+    🛒 Add to Cart
+  </button>
+
+  {cartItems[f.id] && (
+    <button
+      className="remove-cart-btn"
+      onClick={() => removeFromCart(f.id)}
+    >
+      ➖ Remove
+    </button>
+  )}
+
+  <button
+    className="buy-btn"
+    onClick={() => handleBuyNow(f)}
+  >
+    💳 Buy Now
+  </button>
+</div>
+
             )}
           </div>
         ))}
